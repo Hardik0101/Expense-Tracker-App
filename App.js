@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ManageExpense from "./screen/ManageExpense";
 import RecenetExpense from "./screen/RecenetExpense";
-import allExpenses from "./screen/AllExpenses";
+import AllExpenses from "./screen/AllExpenses";
 import { GlobalStyles } from "./constants/styles";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -37,7 +37,7 @@ function ExpensesOverview() {
       />
       <BottomTabs.Screen
         name="AllExpenses"
-        component={allExpenses}
+        component={AllExpenses}
         options={{
           title: "All Expenses",
           tabBarLabel: "All Expenses",
