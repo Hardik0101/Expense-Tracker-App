@@ -9,6 +9,7 @@ function renderExpenseItem(itemData) {
 function ExpensesList({ expenses }) {
   return (
     <FlatList
+      showsVerticalScrollIndicator={false}
       data={expenses}
       renderItem={renderExpenseItem}
       keyExtractor={(item) => item.id}
