@@ -1,13 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import ManageExpense from "./screen/ManageExpense";
-import RecenetExpense from "./screen/RecenetExpense";
-import AllExpenses from "./screen/AllExpenses";
-import { GlobalStyles } from "./constants/styles";
 import { Ionicons } from "@expo/vector-icons";
+
+import { GlobalStyles } from "./constants/styles";
+import RecentExpenses from "./screen/RecenetExpense";
+import AllExpenses from "./screen/AllExpenses";
+import ManageExpense from "./screen/ManageExpense";
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -16,9 +16,7 @@ function ExpensesOverview() {
   return (
     <BottomTabs.Navigator
       screenOptions={{
-        headerStyle: {
-          backgroundColor: GlobalStyles.colors.primary500,
-        },
+        headerStyle: { backgroundColor: GlobalStyles.colors.primary500 },
         headerTintColor: "white",
         tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
         tabBarActiveTintColor: GlobalStyles.colors.accent500,
@@ -26,7 +24,7 @@ function ExpensesOverview() {
     >
       <BottomTabs.Screen
         name="RecentExpenses"
-        component={RecenetExpense}
+        component={RecentExpenses}
         options={{
           title: "Recent Expenses",
           tabBarLabel: "Recent",
@@ -61,15 +59,9 @@ export default function App() {
             component={ExpensesOverview}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name="ManageExpense"
-            component={ManageExpense}
-            options={{}}
-          />
+          <Stack.Screen name="ManageExpense" component={ManageExpense} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
   );
 }
-
-const styles = StyleSheet.create({});

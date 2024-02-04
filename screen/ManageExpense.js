@@ -1,13 +1,7 @@
-import { View, Text, StyleSheet } from "react-native";
+import { Text } from "react-native";
 
 function ManageExpense() {
-  return (
-    <View>
-      <Text>Manage screen</Text>
-    </View>
-  );
+  return <Text>ManageExpense Screen</Text>;
 }
 
 export default ManageExpense;
-
-const styles = StyleSheet.create({});
