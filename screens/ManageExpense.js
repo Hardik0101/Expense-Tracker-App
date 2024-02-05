@@ -25,19 +25,11 @@ function ManageExpense({ route, navigation }) {
     navigation.goBack();
   }
 
-  function confirmHandler() {
+  function confirmHandler(expenseData) {
     if (isEditing) {
-      expensesCtx.updateExpense(editedExpenseId, {
-        description: "Test!!!!",
-        amount: 50.39,
-        date: new Date("2024-01-30"),
-      });
+      expensesCtx.updateExpense(editedExpenseId, expenseData);
     } else {
-      expensesCtx.addExpense({
-        description: "Test",
-        amount: 60.29,
-        date: new Date("2024-01-30"),
-      });
+      expensesCtx.addExpense(expenseData);
     }
     navigation.goBack();
   }
