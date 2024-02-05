@@ -2,8 +2,10 @@ import axios from "axios";
 
 const BACKEND_URL = "https://react-native-app4-default-rtdb.firebaseio.com";
 
-export function storeExpense(expensrData) {
-  axios.post(BACKEND_URL + "/expenses.json", expensrData);
+export async function storeExpense(expensrData) {
+  const response = axios.post(BACKEND_URL + "/expenses.json", expensrData);
+  const id = response.data.name;
+  return id;
 }
 
 export async function fetchExpenses() {
@@ -22,4 +24,12 @@ export async function fetchExpenses() {
     expenses.push(expenseObj);
   }
   return expenses;
+}
+
+export async function updateExpenses(id, expenseData) {
+  return axios.put(BACKEND_URL + `/expenses/${id}.json`, expenseData);
+}
+
+export function deleteExpenses() {
+  return axios.delete(BACKEND_URL + `/expenses/${id}.json`);
 }
